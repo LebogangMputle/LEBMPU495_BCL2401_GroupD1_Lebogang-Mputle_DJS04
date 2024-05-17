@@ -8,7 +8,7 @@ let matches = books; // Initially show all books
 // DOM manipulation functions
 const getElement = (selector) => document.querySelector(selector);
 
-const createBookPreviews = (books, container) => {
+ const createBookPreviews = (books, container) => {
   const fragment = document.createDocumentFragment();
   books.forEach(({ author, id, image, title }) => {
     const element = document.createElement("button");

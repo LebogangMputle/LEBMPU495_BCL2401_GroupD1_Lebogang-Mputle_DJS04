@@ -1,43 +1,44 @@
-# DJS04 Project Brief: Book Connect - Web Components
+# DJS03 Reflection: Book Connect - Abstractions
 
-Building upon your "Book Connect" project in DJS03, you will now dive into Web Components. This challenge will refine your skills in creating reusable, encapsulated, and interactive elements.
+## The original code was restructured to enhance readability, maintainability, and future expandability.
+## Object Usage:
+1.Data related to books, authors, and genres is organized into separate objects (books, authors, genres) for better data management and clarity.
+2.The BOOKS_PER_PAGE constant is used to control the number of books displayed per page, making it easier to adjust this value.
 
-🚨**NOTE** Here you are to continue where you left off in DJS03. This means you must build on your abstractions and work on transforming the Book Preview functionality into a web component🚨
+## Function Breakdown:
+1. getElement: Retrieves DOM elements using a selector (similar to jQuery).
+2. createBookPreviews: Creates and appends book previews to the list container.
+3. createOptions: Creates and appends options to a select element (filters).
+4. applyTheme: Applies a theme (light or night) based on the provided theme value.
+5. updateShowMoreButton: Updates the "Show more" button based on remaining books.
+6. Each function performs a specific task, improving code organization and reusability.
 
-![alt text](image.png)
+## Event Listeners:
+1. Event listeners are placed within specific functions to handle user interactions and update the application state accordingly.
 
-### Objective
-Transform the book preview functionality of the "Book Connect" application into a fully operational Web Component. Additionally, evaluate and potentially convert other parts of the application into Web Components to enhance modularity and reusability.
+## Benefits of Abstraction:
+1. Maintainability:
+   - Smaller, well-defined functions are easier to understand, modify, and debug.
+   - Changes can be localized within functions, reducing the risk of unintended consequences in other parts of the code.
+2. Readability:
+   - Descriptive function names and object structures enhance code clarity.
+3. Extensibility:
+   -New functionalities can be added by creating new functions or modifying   existing ones without affecting the core logic. For example, additional search filters or sorting criteria could be implemented with minimal changes to the existing structure.
 
-### Goals
-- **Convert Book Preview to Web Component**: The main focus is to encapsulate the book preview feature into a Web Component, making it reusable and independent.
-- **Assess Other Components**: Identify other elements within the "Book Connect" app that could benefit from being converted into Web Components.
-- **Maintain Functionality**: Ensure that the application retains all its current functionalities after refactoring.
+## Challenges and Solutions:
+1. Balancing Abstraction:
+   - Overly granular function decomposition could lead to unnecessary complexity. The refactored code strikes a balance between creating well-defined functions and maintaining a logical flow.
+2. Event Listener Placement:
+   - Deciding where to place event listeners to ensure proper interaction handling required careful consideration. The final structure places event listeners within relevant functions to maintain a clear association between actions and their effects.
 
-### Tasks
-1. **Understand the Existing Codebase**: Familiarise yourself with the current structure and functionality of the "Book Connect" project, focusing on the book preview feature.
-2. **Create a Web Component for Book Preview**:
-   - Encapsulate the book preview into a Web Component.
-   - Ensure that the component is self-contained, with its own HTML, CSS, and JavaScript.
-   - Test the component to ensure it works seamlessly within the app.
-3. **Identify and Convert Other Components**:
-   - Analyse the application to identify other potential components for conversion.
-   - Prioritise components based on their reusability and importance to the app.
-   - Convert the chosen elements into Web Components.
-4. **Testing and Integration**:
-   - Rigorously test the new components individually and within the context of the application.
-   - Pay special attention to interactions between components and the overall user experience.
-5. **Documentation**:
-   - Document the process of creating the Web Components.
-   - Include any challenges faced and how they were overcome.
-   - Provide a clear guide on how the components should be used within the app.
+##  Deepening JavaScript Understanding:
+1. Object-Oriented Programming Principles
+   - The use of objects promotes object-oriented principles, making the code more organized and adaptable
+2. Functional Programming Concepts:
+   - Breaking down the code into smaller functions with clear responsibilities aligns with functional programming principles, enhancing reusability and testability (although full-fledged functional programming wasn't implemented).
 
-### Discussion and Reflection
-Prepare to discuss your experience with your coach, focusing on:
-- Challenges encountered while converting the book preview and other elements into Web Components.
-- The rationale behind selecting certain elements for conversion into Web Components.
-- Insights gained about the advantages and limitations of using Web Components in web development.
+3. importance of Readability and Maintainability:
+   - The refactoring process emphasized the value of writing clean, well-structured code that is easy to understand and maintain for both the developer and future collaborators.
 
-### Submission Guidelines
-Submit your updated "Book Connect" codebase, including all the newly created Web Components. Ensure your code is well-commented and adheres to best practices for Web Component development. Include a detailed report covering your process, challenges, and reflections on working with Web Components.
-
+## Conclusion:
+In conclusion, refactoring the JavaScript code for the book list application resulted in a more maintainable, readable, and extensible codebase. The use of objects, functions, and abstraction principles promotes a well-structured and adaptable foundation for future development.

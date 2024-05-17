@@ -99,7 +99,7 @@
         `;
 
 
-        this.shadowRoot.innerHTML = '';
+        //this.shadowRoot.innerHTML = '';
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 

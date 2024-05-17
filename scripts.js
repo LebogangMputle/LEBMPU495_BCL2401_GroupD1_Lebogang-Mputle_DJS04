@@ -1,6 +1,6 @@
 // Import book data
 import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
-
+import { BookPreview } from "./bookPreview.js";
 // State variables
 let page = 1;
 let matches = books; // Initially show all books
@@ -18,21 +18,6 @@ function createBookPreviews(container) {
 }
 
 const getElement = (selector) => document.querySelector(selector);
-
-/*
-function createBookPreviews(container) {
-  matches.slice(0, BOOKS_PER_PAGE).forEach((book) => {
-    const preview = document.createElement("book-preview");
-    preview.setAttribute("title", book.title);
-    preview.setAttribute("author", authors[book.author]);
-    preview.setAttribute("image", book.image);
-    preview.setAttribute("id", book.id);
-    container.appendChild(preview);
-  });
-}
-
-createBookPreviews(getElement("[data-list-items]"));
-*/
 
 const createOptions = (options, defaultOption, container) => {
   const fragment = document.createDocumentFragment();

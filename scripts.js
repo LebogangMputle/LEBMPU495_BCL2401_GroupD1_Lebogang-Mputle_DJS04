@@ -17,10 +17,6 @@ function createBookPreviews(container) {
   });
 }
 
-//createBookPreviews(getElement("[data-list-items]"));
-
-
-// DOM manipulation functions
 const getElement = (selector) => document.querySelector(selector);
 
 /*

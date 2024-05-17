@@ -167,12 +167,6 @@ const closeOverlay = (selector) => {
       }
     }
   });
-    /*createBookPreviews(
-      matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE),
-      getElement("[data-list-items]")
-    );
-    page += 1;
-    updateShowMoreButton();*/
 
 // Initial setup
 createOptions(genres, "All Genres", getElement("[data-search-genres]"));

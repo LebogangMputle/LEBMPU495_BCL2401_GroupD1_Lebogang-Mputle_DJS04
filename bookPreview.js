@@ -53,11 +53,9 @@
                     display: none;
                 }
 
-
                 .preview:hover {
                     background: rgba(var(--color-blue), 0.05);
                 }
-
 
                 .preview__image {
                     width: 48px;

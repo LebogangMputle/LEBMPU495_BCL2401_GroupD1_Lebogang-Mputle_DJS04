@@ -1,6 +1,5 @@
 // Import book data
 import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
-import { BookPreview } from "./bookPreview.js";
 // State variables
 let page = 1;
 let matches = books; // Initially show all books

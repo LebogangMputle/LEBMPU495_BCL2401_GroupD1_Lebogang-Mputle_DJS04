@@ -14,7 +14,6 @@ function createBookPreviews(container) {
     preview.setAttribute("author", authors[book.author]);
     preview.setAttribute("image", book.image);
     preview.setAttribute("id", book.id);
-    //container.appendChild(preview);
   });
 }
 

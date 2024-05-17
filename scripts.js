@@ -5,26 +5,39 @@ import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
 let page = 1;
 let matches = books; // Initially show all books
 
+ // Your book data
+
+function createBookPreviews(container) {
+  books.forEach((book) => {
+    const preview = document.createElement("book-preview");
+    preview.setAttribute("title", book.title);
+    preview.setAttribute("author", authors[book.author]);
+    preview.setAttribute("image", book.image);
+    preview.setAttribute("id", book.id);
+    //container.appendChild(preview);
+  });
+}
+
+//createBookPreviews(getElement("[data-list-items]"));
+
+
 // DOM manipulation functions
 const getElement = (selector) => document.querySelector(selector);
 
-const createBookPreviews = (books, container) => {
-  const fragment = document.createDocumentFragment();
-  books.forEach(({ author, id, image, title }) => {
-    const element = document.createElement("button");
-    element.classList = "preview";
-    element.dataset.preview = id;
-    element.innerHTML = `
-      <img class="preview__image" src="${image}" />
-      <div class="preview__info">
-        <h3 class="preview__title">${title}</h3>
-        <div class="preview__author">${authors[author]}</div>
-      </div>
-    `;
-    fragment.appendChild(element);
+/*
+function createBookPreviews(container) {
+  matches.slice(0, BOOKS_PER_PAGE).forEach((book) => {
+    const preview = document.createElement("book-preview");
+    preview.setAttribute("title", book.title);
+    preview.setAttribute("author", authors[book.author]);
+    preview.setAttribute("image", book.image);
+    preview.setAttribute("id", book.id);
+    container.appendChild(preview);
   });
-  container.appendChild(fragment);
-};
+}
+
+createBookPreviews(getElement("[data-list-items]"));
+*/
 
 const createOptions = (options, defaultOption, container) => {
   const fragment = document.createDocumentFragment();

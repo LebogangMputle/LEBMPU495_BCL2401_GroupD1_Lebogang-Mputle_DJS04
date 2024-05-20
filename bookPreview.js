@@ -1,33 +1,12 @@
- export class BookPreview extends HTMLElement {
-    static get observedAttributes() {
-        return ['author', 'id', 'image', 'title'];
-        //customElements.define('book-preview', BookPreview);
-    }
-    constructor() {
-      super();
-      this.attachShadow({ mode: "open" });
-    }
-    isConnectedCallback(){
-        this.render();
-    }
-  
-    attributeChangedCallback(name, oldValue, newValue) {
-      if (oldValue !== newValue){
-       this.render(); 
-      }    
-    }
-  
+import { books, authors, genres } from './data.js';
+
+class BookPreview extends HTMLElement {
     render() {
-        const author = this.getAttribute('author');
-        const id = this.getAttribute('id');
-        const image = this.getAttribute('image');
-        const title = this.getAttribute('title');
-
-
-        const template = document.createElement('template');
-        template.innerHTML = `
+        const {author, id, image, title} = this.dataset;
+        const authorName = authors[author];
+        innerHTML = `
             <style>
-                .preview {
+              .preview {
                     border-width: 0;
                     width: 100%;
                     font-family: Roboto, sans-serif;
@@ -40,24 +19,18 @@
                     border: 1px solid rgba(var(--color-dark), 0.15);
                     background: rgba(var(--color-light), 1);
                 }
-
-
                 @media (min-width: 60rem) {
-                    .preview {
+                  .preview {
                         padding: 1rem;
                     }
                 }
-
-
-                .preview_hidden {
+              .preview_hidden {
                     display: none;
                 }
-
-                .preview:hover {
+              .preview:hover {
                     background: rgba(var(--color-blue), 0.05);
                 }
-
-                .preview__image {
+              .preview__image {
                     width: 48px;
                     height: 70px;
                     object-fit: cover;
@@ -67,43 +40,34 @@
                                 0px 1px 1px 0px rgba(0, 0, 0, 0.1),
                                 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
                 }
-
-
-                .preview__info {
+              .preview__info {
                     padding: 1rem;
                 }
-
-
-                .preview__title {
+              .preview__title {
                     margin: 0 0 0.5rem;
                     font-weight: bold;
                     display: -webkit-box;
                     -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;  
+                    -webkit-box-orient: vertical;
                     overflow: hidden;
                     color: rgba(var(--color-dark), 0.8);
                 }
-
-
-                .preview__author {
+              .preview__author {
                     color: rgba(var(--color-dark), 0.4);
                 }
             </style>
             <button class="preview" data-preview="${id}">
-                <img class="preview__image" src="${image}" alt="${title}" />
+                <img class="preview__image" src="${image}"/>
                 <div class="preview__info">
                     <h3 class="preview__title">${title}</h3>
-                    <div class="preview__author"></div>
+                    <div class="preview__author">${authorName}</div>
                 </div>
             </button>
         `;
 
-
-        //this.shadowRoot.innerHTML = '';
+        this.shadowRoot.innerHTML = '';
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
+}
 
-  }
-  
-  customElements.define("book-preview", BookPreview);
-  
+customElements.define('book-preview', BookPreview);

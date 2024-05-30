@@ -90,7 +90,7 @@ export class BookPreview extends HTMLElement {
             </button>
         `;
 
-        this.shadowRoot.innerHTML = '';
+        this.shadowRoot.innerHTML = ''
         this.shadowRoot.appendChild(template.content.cloneNode(true));
     }
 }

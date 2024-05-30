@@ -1,19 +1,24 @@
 // Import book data
-import { books, authors, genres, BOOKS_PER_PAGE } from "./data.js";
+import { books, authors, genres, BOOKS_PER_PAGE, } from "./data.js";
+import { BookPreview } from "./bookPreview.js";
 // State variables
-let page = 1;
+let page = 1
 let matches = books; // Initially show all books
 
  // Your book data
+ customElements.define('book-preview', BookPreview);
 
-function createBookPreviews(container) {
-  books.forEach((book) => {
+function createBookPreviews(books, container) {
+  // const fragment = document.createDocumentFragment();
+  books.forEach(({ author, id, image, title }) => {
     const preview = document.createElement("book-preview");
-    preview.setAttribute("title", book.title);
-    preview.setAttribute("author", authors[book.author]);
-    preview.setAttribute("image", book.image);
-    preview.setAttribute("id", book.id);
+    preview.setAttribute("title", title);
+    preview.setAttribute("author", authors[author]);
+    preview.setAttribute("image", image);
+    preview.setAttribute("id", id);
+    container.appendChild(preview);
   });
+  // container.appendChild(fragment)
 }
 
 const getElement = (selector) => document.querySelector(selector);

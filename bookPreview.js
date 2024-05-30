@@ -1,10 +1,35 @@
-import { books, authors, genres } from './data.js';
+//import { books, authors, genres } from './data.js';
 
-class BookPreview extends HTMLElement {
+import { authors } from "./data.js";
+
+export class BookPreview extends HTMLElement {
+    constructor() {
+        super()
+        this.attachShadow({mode: "open"});
+    }
+
+    connectedCallback(){
+        this.render()
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        this.render()
+    }
+
+    static get observedAttribute() {
+        return ['author', 'id', 'image', 'title'];
+    }
+
     render() {
-        const {author, id, image, title} = this.dataset;
-        const authorName = authors[author];
-        innerHTML = `
+        // const {author, id, image, title} = this.dataset;
+        const author = this.getAttribute('author');
+        const id = this.getAttribute('id');
+        const image = this.getAttribute('image');
+        const title = this.getAttribute('title');
+
+        const template = document.createElement('template');
+
+        template.innerHTML = `
             <style>
               .preview {
                     border-width: 0;
@@ -60,7 +85,7 @@ class BookPreview extends HTMLElement {
                 <img class="preview__image" src="${image}"/>
                 <div class="preview__info">
                     <h3 class="preview__title">${title}</h3>
-                    <div class="preview__author">${authorName}</div>
+                    <div class="preview__author">${authors[author]}</div>
                 </div>
             </button>
         `;
@@ -70,4 +95,4 @@ class BookPreview extends HTMLElement {
     }
 }
 
-customElements.define('book-preview', BookPreview);
+// customElements.define('book-preview', BookPreview);
